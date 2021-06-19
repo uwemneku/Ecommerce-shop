@@ -17,3 +17,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+button:active{
+  outline: none;
+}
+button:focus{
+  outline: none;
+}
+.inputError{
+  
+  animation: inputError 0.5s linear 0s 3;
+}
+
+@keyframes inputError {
+  0%{
+      background-color: white;
+  }
+  50%{
+    background-color: red;
+  }
+  100%{
+    background-color:white;
+  }
+}
