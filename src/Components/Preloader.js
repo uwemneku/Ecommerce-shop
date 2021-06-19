@@ -7,7 +7,7 @@ export default function Preloader() {
                     setmarginTop(!marginTop)
                 }, 500);
         return () => clearInterval(animating)
-    }, [])
+    })
     return (
         <div className="absolute"> 
             <div className={`transition-all duration-500 mt-${marginTop?2:6} w-12 h-2 bg-${marginTop?"blue-400":"white"} m-2 rounded`}/>
