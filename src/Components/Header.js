@@ -7,7 +7,7 @@ export default function Header() {
                 <p className="font-bold text-3xl text-blue-300 text-lg "> 
                     TRIFF SHOP
                 </p>
-                <div className="text-black">
+                <div className="text-black hidden sm:block ">
                     <button className="bg-blue-400 text-white rounded py-1 px-3 mx-2 mr-5 font-medium hover:shadow-md hover:bg-blue-300 focus:outline-none active:bg-blue-700">
                         Log in
                     </button>
