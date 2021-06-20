@@ -6,24 +6,12 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { auth } from './firebaseconfig'
+import {useSelector} from 'react-redux'
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(null)
+  const isLoggedIn = useSelector(state => state.isLoggedIn)
 
-  useEffect(() => {
-    const unsubscribe =  auth.onAuthStateChanged((authUser) => {
-      if(authUser){
-        setIsLoggedIn(true)
-        console.log(authUser);
-      }else{
-        setIsLoggedIn(false)
-      }
-    })
 
-    return () => {
-      unsubscribe()
-    }
-  }, [])
 
   return (
     <Router>

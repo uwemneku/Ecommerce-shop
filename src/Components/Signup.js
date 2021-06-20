@@ -5,6 +5,8 @@ import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa';
 import {Link} from "react-router-dom"
 import {auth} from '../firebaseconfig'
+import {login} from '../actions'
+import {useDispatch} from 'react-redux'
 
 export default function Signup() {
     const formRef = useRef(null)
@@ -16,6 +18,7 @@ export default function Signup() {
     const [opacity, setopacity] = useState(0)
     const [showPassword, setshowPassword] = useState(false)
     const [isPasswordOK, setIsPasswordOK] = useState(true)
+    const dispact = useDispatch()
     const showError = (node) => {
         node.classList.add("inputError")
         setTimeout(() => {
@@ -37,7 +40,7 @@ export default function Signup() {
 
         if(formRef.current.checkValidity() && isPasswordOK){
             auth.createUserWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
-            .then(e => console.log(e))
+            .then(e => dispact(login()))
             .catch(error => alert(error.message))
         };
     }
@@ -85,7 +88,7 @@ export default function Signup() {
                                 </p>
                     </button>
                 </div>
-                <p className="text-center" > Have an account?  <Link to="/login" > <a className="text-blue-700 font-medium" >Sign In</a> </Link> </p>
+                <p className="text-center" > Have an account?  <Link to="/login" > <span className="text-blue-700 font-medium" >Sign In</span> </Link> </p>
             </div>
         </section>
     )
