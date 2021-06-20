@@ -21,9 +21,11 @@ export default function Header() {
                 </Link>
                 {
                     isLoggedIn?
-                                <button onClick={handleLogout} className="bg-blue-400 text-white rounded py-1 px-3 mx-2 mr-5 font-medium hover:shadow-md hover:bg-blue-300 focus:outline-none active:bg-blue-700">
-                                    Log out
-                                </button>
+                                <Link to="/">
+                                    <button onClick={handleLogout} className="bg-blue-400 text-white rounded py-1 px-3 mx-2 mr-5 font-medium hover:shadow-md hover:bg-blue-300 focus:outline-none active:bg-blue-700">
+                                        Log out
+                                    </button>
+                                </Link>
                             :
 
                                 <nav className="text-black hidden sm:block ">

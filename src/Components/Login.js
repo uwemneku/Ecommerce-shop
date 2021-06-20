@@ -39,7 +39,7 @@ export default function Login() {
             setLoading(true)
             auth.signInWithEmailAndPassword(email, password)
             .then(e => dispact(login()))
-            .catch(error => setLoading(false))
+            .catch(error => {setLoading(false); alert(error.message)})
         }
     }
     useEffect(() => {

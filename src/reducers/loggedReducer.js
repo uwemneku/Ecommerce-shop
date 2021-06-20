@@ -1,6 +1,16 @@
 import {auth} from "../firebaseconfig"
 
-const loggedReducer = (state = auth.currentUser?true:false , action) => {
+const  loadingState = auth.onAuthStateChanged((authUser) => {
+    if(authUser){
+            return true
+            
+    }else{
+            return false
+    }
+})
+
+console.log(loadingState);
+const loggedReducer = (state = loadingState, action) => {
     switch (action.type) {
         case "login":
             return true
