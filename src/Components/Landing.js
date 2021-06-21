@@ -6,10 +6,10 @@ import {Link} from "react-router-dom"
 
 export default function Landing() {
     const [isLoading, setisLoading] = useState(true)
-    const handleLoading =  (e) => {setisLoading(false)}
+    const handleLoading =  () => {setisLoading(false)}
     return (
         <div className=" flex-1  bg-blue-300 py-20 px-16 flex flex-col-reverse sm:flex-row justify-between items-center">
-           <div className="w-screen flex justify-center text-black block  sm:hidden ">
+           <div className="w-screen flex justify-center text-black sm:hidden ">
                <Link to="/login">
                     <button className="bg-white rounded py-3 px-5 mx-2 mr-5 font-medium shadow-md drop-shadow-md hover:shadow-md hover:bg-blue-300 focus:outline-none active:bg-blue-700">
                         Log in

@@ -15,7 +15,6 @@ export default function Signup() {
     const phoneNumberRef = useRef(null)
     const passwordRef = useRef(null)
     const verifypasswordRef = useRef(null)
-    const [opacity, setopacity] = useState(0)
     const [showPassword, setshowPassword] = useState(false)
     const [isPasswordOK, setIsPasswordOK] = useState(true)
     const dispact = useDispatch()
@@ -59,11 +58,9 @@ export default function Signup() {
     } 
     
     
-    useEffect(() => {
-        setopacity(1)
-    }, [])
+    
     return (
-        <section className={`flex-1 bg-blue-500 flex justify-center items-start sm:py-20 opacity-${opacity} transition-opacity duration-300 `}>
+        <section className={`flex-1 bg-blue-500 flex justify-center items-start sm:py-20 transition-opacity duration-300 `}>
             <div className="bg-white rounded w-full sm:w-96 p-5 " >
                 <p className="text-center font-bold text-gray-600 text-2xl" >Welcome</p>
                 <p className="text-center text-md text-gray-500" >Enter your credentials to create your account</p>

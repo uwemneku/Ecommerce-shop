@@ -10,16 +10,20 @@ import { useDispatch } from 'react-redux';
 
 
 export default function Login() {
-    const passwordRef = useRef("")
+    //Refs to be used to get input values
+    const passwordRef = useRef("")   
     const emailRef = useRef("")
     const formRef = useRef("")
-    const dispact = useDispatch()
-    const [opacity, setopacity] = useState(0)
+
     const [loading, setLoading] = useState(false)
     const [showPassword, setshowPassword] = useState(false)
+
+    const dispact = useDispatch()
+
     const handleShowPassword = () => {
         setshowPassword(!showPassword)
     }
+
     const showError = (node) => {
         node.classList.add("inputError")
         setTimeout(() => {
@@ -42,11 +46,9 @@ export default function Login() {
             .catch(error => {setLoading(false); alert(error.message)})
         }
     }
-    useEffect(() => {
-        setopacity(1)
-    }, [])
+    
     return (
-        <section className={`flex-1 bg-blue-500 flex justify-center items-start py-20 opacity-${opacity} transition-opacity duration-300 `}>
+        <section className={`flex-1 bg-blue-500 flex justify-center items-start py-20 transition-opacity duration-300 `}>
             <div className="bg-white rounded w-full sm:w-96 p-5 " >
                 <p className="text-center font-bold text-gray-600 text-2xl" >Welcome Back</p>
                 <p className="text-center text-md text-gray-500" >Enter your credentials to acess your account</p>

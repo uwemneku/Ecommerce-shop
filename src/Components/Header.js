@@ -9,7 +9,6 @@ export default function Header() {
     const dispact = useDispatch()
     const handleLogout = () => {
         auth.signOut().then(e => dispact(logout()))
-        
     }
     return (
         <div className="flex-0 z-10 shadow-lg drop-shadow-lg  ">
