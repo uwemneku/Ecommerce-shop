@@ -7,6 +7,8 @@ import {Link} from "react-router-dom"
 import {auth, facebookProvider, googleProvider} from '../firebaseconfig'
 import {login} from '../actions'
 import {useDispatch} from 'react-redux'
+import SignInButton from './SignInButton';
+
 
 export default function Signup() {
     const formRef = useRef(null)
@@ -40,22 +42,12 @@ export default function Signup() {
         if(formRef.current.checkValidity() && isPasswordOK){
             auth.createUserWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
             .then(e => dispact(login()))
-            .catch(error => alert(error.message))
+            .catch()
         };
     }
     const handleShowPassword = () => {
         setshowPassword(!showPassword)
     }
-    const handleGoogleSignUp =()=>{
-        auth.signInWithPopup(googleProvider)
-        .then(e => dispact(login()))
-        .catch(alert)
-    } 
-    const handlefacebookSignUp =()=>{
-        auth.signInWithPopup(facebookProvider)
-        .then(e => dispact(login()))
-        .catch(alert)
-    } 
     
     
     
@@ -82,18 +74,8 @@ export default function Signup() {
                             </button>
                 </form>
                 <div className="flex flex-col mt-4">
-                    <button onClick={handleGoogleSignUp} className="my-2 bg-white rounded shadow-md drop-shadow-md p-2 font-medium flex items-center justify-center" >
-                                <FcGoogle/>
-                                <p className="px-2" >
-                                    Sign up with Google
-                                </p>
-                    </button>
-                    <button onClick={handlefacebookSignUp} className=" my-2 bg-white rounded shadow-md drop-shadow-md p-2 font-medium flex items-center justify-center" >
-                                <FaFacebook className="text-blue-600" />
-                                <p className="px-2" >
-                                    Sign up with Facebook
-                                </p>
-                    </button>
+                    <SignInButton authType = "Google" />
+                    <SignInButton authType = "Facebook" />
                 </div>
                 <p className="text-center" > Have an account?  <Link to="/login" > <span className="text-blue-700 font-medium" >Sign In</span> </Link> </p>
             </div>

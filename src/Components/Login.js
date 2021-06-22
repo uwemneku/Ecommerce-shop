@@ -6,6 +6,7 @@ import {Link} from "react-router-dom"
 import {auth} from '../firebaseconfig'
 import {login} from '../actions'
 import { useDispatch } from 'react-redux';
+import SignInButton from './SignInButton';
 
 
 
@@ -17,13 +18,13 @@ export default function Login() {
 
     const [loading, setLoading] = useState(false)
     const [showPassword, setshowPassword] = useState(false)
-
     const dispact = useDispatch()
 
     const handleShowPassword = () => {
         setshowPassword(!showPassword)
     }
 
+    // this function takes a node and blinks the background color
     const showError = (node) => {
         node.classList.add("inputError")
         setTimeout(() => {
@@ -65,20 +66,13 @@ export default function Login() {
                                 {loading ? <VscLoading className='text-lg animate-spin' /> : "Sign In" }
                             </button>
                 </form>
+
                 <div className="flex flex-col mt-2">
-                    <button className="my-2 bg-white rounded shadow-md drop-shadow-md p-2 font-medium flex items-center justify-center" >
-                                <FcGoogle/>
-                                <p className="px-2" >
-                                    Sign In with Google
-                                </p>
-                    </button>
-                    <button className=" my-2 bg-white rounded shadow-md drop-shadow-md p-2 font-medium flex items-center justify-center" >
-                                <FaFacebook className="text-blue-600" />
-                                <p className="px-2" >
-                                    Sign In with Facebook
-                                </p>
-                    </button>
+                    <SignInButton authType = "Google" />
+                    <SignInButton authType = "Facebook" />
+                    
                 </div>
+                
                 <p className="text-center" > Don't have an account?  <Link to="/signup" > <span className="text-blue-700 font-medium" >Sign up</span> </Link> </p>
             </div>
         </section>

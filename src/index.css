@@ -23,6 +23,7 @@ button:active{
 button:focus{
   outline: none;
 }
+
 .inputError{
   
   animation: inputError 0.5s linear 0s 3;
